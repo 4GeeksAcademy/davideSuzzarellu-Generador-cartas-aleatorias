@@ -50,17 +50,32 @@ updateCountdown(10);
 const button = document.querySelector("#button");
 button.addEventListener("click", () => createCard());
 
+
 const heightInput = document.getElementById('heightInput');
 heightInput.addEventListener('input', function () {
   const heightValue = heightInput.value;
-  card.style.height = heightValue ? heightValue + 'px' : '360px';
+  card.style.height = heightValue ? heightValue + 'px' : '';
+  heightInput.addEventListener('blur', function () {
+    if (!heightInput.value) {
+      card.style.height = '';
+    }
+  });
 });
 
 const widthInput = document.getElementById('widthInput');
 widthInput.addEventListener('input', function () {
   const widthValue = widthInput.value;
-  card.style.width = widthValue ? widthValue + 'px' : '18em';
+  card.style.width = widthValue ? widthValue + 'px' : '';
+  widthInput.addEventListener('blur', function () {
+    if (!widthInput.value) {
+      card.style.width = '';
+    }
+  });
 });
+
+
+
+
 
 
 
